@@ -1,9 +1,8 @@
 package cleanTest;
 
+import io.qameta.allure.*;
 import activity.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import singletonSession.Session;
 
 public class CreateNoteWithNotepad {
@@ -17,6 +16,12 @@ public class CreateNoteWithNotepad {
     String updateTitle = "CatoUpdate";
     String updateNote = "nota updated";
 
+    @Order(1)
+    @DisplayName("Verify CRUD Color note")
+    @Description("this test case is to verify .......")
+    @Epic("Color Notepad")
+    @Feature("CRUD")
+    @Owner("Luis Alberto Villarroel Vargas")
     @Test
     public void verifyCUDNote(){
 

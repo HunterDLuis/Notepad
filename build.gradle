@@ -1,6 +1,14 @@
-plugins {
-    id 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.3"
+    }
 }
+
+apply plugin: "java"
+apply plugin: "io.qameta.allure"
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -19,8 +27,17 @@ dependencies {
     // cucumber
     testImplementation 'io.cucumber:cucumber-junit:7.8.1'
     implementation 'io.cucumber:cucumber-java:7.8.1'
+
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5
+    testImplementation 'io.qameta.allure:allure-junit5:2.13.5'
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.9.1'
 }
 
 test {
     useJUnitPlatform()
+}
+
+allure{
+    version = "2.2.1"
+    autoconfigure = true
 }
